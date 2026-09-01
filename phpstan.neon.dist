@@ -1,0 +1,22 @@
+parameters:
+    level: 7
+    paths:
+        - src
+        - config
+    # This is a package, not an application: config_path() points nowhere, so
+    # larastan has to be told which folder holds the publishable config file.
+    configDirectories:
+        - config
+    tmpDir: build/phpstan
+    ignoreErrors:
+        # Scout exposes searchableAs(), getScoutKey(), toSearchableArray() and
+        # friends through the Searchable *trait*. Every engine hook receives an
+        # Illuminate\Database\Eloquent\Model, and PHPDoc cannot express
+        # "Model & Searchable" because a trait is not a type, so PHPStan can
+        # never resolve these calls. Scout guarantees at runtime that only
+        # searchable models reach the engine.
+        -
+            identifier: method.notFound
+            message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:(getScoutKey|getScoutKeyName|getScoutModelsByIds|queryScoutModelsByIds|searchableAs|toSearchableArray|trashed)\(\)\.$#'
+            paths:
+                - src

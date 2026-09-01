@@ -1,0 +1,117 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "danielebarbaro/scout-phpvector",
+    "description": "Laravel Scout engine backed by ezimuel/phpvector, a pure PHP vector database with HNSW and BM25. Supports full text, semantic and hybrid search without any external service.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "scout",
+        "search",
+        "vector",
+        "hnsw",
+        "bm25",
+        "semantic-search",
+        "hybrid-search"
+    ],
+    "homepage": "https://github.com/danielebarbaro/scout-phpvector",
+    "authors": [
+        {
+            "name": "Daniele Barbaro",
+            "email": "barbaro.daniele@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ezimuel/phpvector": "^0.3",
+        "illuminate/support": "^12.0||^13.0",
+        "laravel/scout": "^11.6"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.9",
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^10.0||^11.0",
+        "pestphp/pest": "^4.6||^5.0",
+        "pestphp/pest-plugin-laravel": "^4.1||^5.0",
+        "pestphp/pest-plugin-type-coverage": "^4.0||^5.0",
+        "phpstan/extension-installer": "^1.4"
+    },
+    "suggest": {
+        "laravel/ai": "Required for semantic and hybrid search. Scout generates embeddings through Laravel\\Ai\\Embeddings; this package never talks to an embedding provider itself."
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../PHPVector",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "ezimuel/phpvector": "0.3.0"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DanieleBarbaro\\ScoutPHPVector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DanieleBarbaro\\ScoutPHPVector\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DanieleBarbaro\\ScoutPHPVector\\ScoutPHPVectorServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "prepare": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ],
+        "build": [
+            "@php vendor/bin/testbench workbench:build --ansi"
+        ],
+        "lint": [
+            "vendor/bin/pint --parallel"
+        ],
+        "lint:check": [
+            "vendor/bin/pint --parallel --test"
+        ],
+        "analyse": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "test:types": [
+            "vendor/bin/pest --type-coverage --min=100"
+        ],
+        "test:unit": [
+            "vendor/bin/pest --parallel"
+        ],
+        "test": [
+            "@analyse",
+            "@lint:check",
+            "@test:types",
+            "@test:unit"
+        ],
+        "clear": [
+            "@php vendor/bin/testbench package:purge-skeleton --ansi"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
