@@ -28,7 +28,7 @@ drivers.
 
 | | |
 |---|---|
-| PHP | 8.3+ |
+| PHP | 8.4+ |
 | Laravel | 12.x or 13.x |
 | Laravel Scout | 11.6+ |
 | `laravel/ai` | optional, required only for semantic and hybrid search |
