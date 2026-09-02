@@ -1,4 +1,16 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/danielebarbaro/scout-phpvector/main/art/banner.png" alt="Scout PHPVector">
+</p>
+
 # Scout PHPVector
+
+<p align="center">
+    <a href="https://packagist.org/packages/danielebarbaro/scout-phpvector"><img src="https://img.shields.io/packagist/v/danielebarbaro/scout-phpvector.svg?style=flat-square" alt="Packagist"></a>
+    <a href="https://packagist.org/packages/danielebarbaro/scout-phpvector"><img src="https://img.shields.io/packagist/php-v/danielebarbaro/scout-phpvector.svg?style=flat-square" alt="PHP from Packagist"></a>
+    <a href="https://packagist.org/packages/danielebarbaro/scout-phpvector"><img src="https://badge.laravel.cloud/badge/danielebarbaro/scout-phpvector?style=flat" alt="Laravel versions"></a>
+    <a href="https://github.com/danielebarbaro/scout-phpvector/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/danielebarbaro/scout-phpvector/tests.yml?branch=main&label=Tests&style=flat-square"></a>
+    <a href="https://packagist.org/packages/danielebarbaro/scout-phpvector"><img src="https://img.shields.io/packagist/dt/danielebarbaro/scout-phpvector.svg?style=flat-square" alt="Total Downloads"></a>
+</p>
 
 A [Laravel Scout](https://laravel.com/docs/scout) engine backed by
 [ezimuel/phpvector](https://github.com/ezimuel/PHPVector), a vector database
@@ -460,6 +472,26 @@ SQLite database and a deterministic offline embedding generator, so no API key
 and no network access are needed. `laravel/ai` is deliberately absent from `require-dev` so the
 "SDK is missing" path is exercised for real.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+### Security
+
+If you discover any security related issues, please email barbaro.daniele@gmail.com instead of using the issue tracker.
+
+## Credits
+
+- [Daniele Barbaro](https://daniele.barbaro.online)
+
+## Contributors
+
+- [All Contributors](../../contributors)
+
 ## License
 
-MIT. See [LICENSE.md](LICENSE.md).
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
