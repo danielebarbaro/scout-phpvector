@@ -47,7 +47,7 @@
             "options": {
                 "symlink": true,
                 "versions": {
-                    "ezimuel/phpvector": "0.4.0"
+                    "ezimuel/phpvector": "0.4.1"
                 }
             }
         }
